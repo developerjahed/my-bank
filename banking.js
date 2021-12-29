@@ -5,6 +5,7 @@ const depositTotal=document.getElementById('deposit-total');
 const withdrawBtn=document.getElementById('withdraw-btn');
 const withdrawInput=document.getElementById('withdraw-input');
 const withdrawTotal=document.getElementById('withdraw-total');
+const balanceTotal=document.getElementById('balance-total');
 
 depositBtn.addEventListener('click', function(){
     if(depositInput.value==''){
@@ -13,6 +14,8 @@ depositBtn.addEventListener('click', function(){
         const depositInputValue=parseInt(depositInput.value);
         depositTotal.innerText=depositInputValue;
         depositInput.value='';
+        const balance=parseFloat(balanceTotal.innerText)+depositInputValue;
+        balanceTotal.innerText=balance;
     }
     
 });
@@ -26,8 +29,8 @@ withdrawBtn.addEventListener('click', function(){
     }else{
         const withdrawInputValue=parseFloat(withdrawInput.value);
         withdrawTotal.innerText=withdrawInputValue;
-        const withdraw= parseFloat(depositTotal.innerText)-withdrawInputValue;
-        depositTotal.innerText=withdraw;
+        const withdraw= parseFloat(balanceTotal.innerText)-withdrawInputValue;
+        balanceTotal.innerText=withdraw;
         withdrawInput.value='';
 
     }

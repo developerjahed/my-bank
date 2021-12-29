@@ -5,6 +5,7 @@ const userPassword=document.getElementById('user-password');
 
 loginBtn.addEventListener('click', function(){
   if(userEmail.value=="developerjahed@gmail.com" && userPassword.value=="webdeveloper"){
+    alert('Thank you');
       window.location.href='banking.html';
   }
 });
